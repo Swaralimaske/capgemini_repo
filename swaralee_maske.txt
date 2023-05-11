@@ -1,0 +1,241 @@
+#folder
+
+for($i=0;$i -lt 10;$i++)
+{
+$a = 'swarali'+$i;
+New-Item -Path $a -Itemtype Directory;
+}
+
+#file
+
+for($i=0;$i -lt 10;$i++)
+{
+$a = 'swarali'+$i +'.txt';
+New-Item -Path $a -Itemtype file;
+}
+
+#folder in folder
+for($i=0;$i -lt 10;$i++)
+{
+for($j=0;$j -lt 10;$j++)
+{
+New-Item -Path swarali$i/folder$j -Itemtype Directory;
+}
+}
+
+
+#folder in folder in file
+for($i=0;$i -lt 10;$i++)
+{
+for($j=0;$j -lt 10;$j++)
+{
+for($k=0;$k -lt 10;$k++)
+{
+New-Item -Path swarali$i/folder$j/file$k'.txt' -Itemtype file;
+}
+}
+}
+
+#folfer in folder copy file
+
+for($i=0;$i -lt 10;$i++)
+{
+for($j=0;$j -lt 10;$j++)
+{
+Copy-Item swarali$i.txt swarali$j;
+}
+}
+
+#remove file folder
+for($i=0;$i -lt 10;$i++)
+{
+
+Remove-Item swarali$i;
+}
+
+#using while loop Create folder 
+$i=0
+while($i -lt 10)
+{
+New-Item -Path surbhi$i -ItemType Directory;
+$i++;
+}
+
+
+1.#While folder
+$i=0
+while($i -lt 10)
+{
+New-Item -Path surbhi$i-ItemType directory;
+$i++;
+}
+
+2.#file
+$i=0
+while($i -lt 10)
+{
+New-Item -Path new$i.txt -ItemType file;
+$i++;
+}
+
+4.folder in folder in file
+
+$i=0
+while($i -lt 10)
+{
+$j=0;
+while($j -lt 10)
+{
+$k=0
+while($k -lt 10)
+{
+
+New-Item -Path surbhi$i/shree$j/n$k.txt -ItemType file;
+$k++;
+}
+$j++;
+}
+$i++;
+}
+
+5.$i=0
+while($i -lt 10)
+{
+$j=0;
+while($j -lt 10)
+{
+$k=0;
+while($k -lt 10)
+{
+
+Copy-Item surbhi$i.txt surbhi$j/shree$k;
+$k++;
+}
+$j++;
+}
+$i++;
+}
+
+6.
+$i=0
+while($i -lt 10)
+{
+$j=0;
+while($j -lt 10)
+{
+$k=0;
+while($k -lt 10)
+{
+
+Remove-Item surbhi$i/shree$k/*.txt;
+$k++;
+}
+$j++;
+}
+$i++;
+}
+
+
+1.create  Folder using do while loop 
+$j=0
+
+do{
+    $folder = 'swarali' + $j
+ 
+    $k=0
+    
+    do{
+        $folder1 = 'swarali' + $k
+        New-Item -Path $folder\$folder1 -ItemType  Directory
+        $k++
+    }while($k -lt 10)
+    $j++
+    
+}while($j -lt 10)
+
+
+2.create file using do while loop 
+$i=0
+
+do{
+    $filename = 'shree' + $i + '.txt'
+    New-Item -Path $filename -ItemType  File
+     $i++
+}while($i -lt 10)
+    
+    $j=0 
+   
+do{
+    $foldernm = '' + $jshree
+    New-Item -Path $foldernm -ItemType  Directory
+    $j++
+} while( $j -lt 10)
+
+3#create  Folder  in folder  and add text file to each folder using do while loop
+
+ $j=0 
+ 
+do{
+    $folder = 'swarali' + $j
+
+    $k=0
+   
+         do{
+            $folder1 = 'swarali' + $k
+            $l=0
+                
+                    do{
+                        $folder2 = 'sm' + $l + '.txt'
+                        New-Item -Path $folder\$folder1\$folder2 -ItemType  file
+                        $l++
+                    }while($l -lt 10)
+                    
+          $k++
+        } while( $k -lt 10)
+        
+  $j++      
+}while($j -lt 10)
+
+4.Copy  text File  using do while 
+
+$j=0
+
+do{
+    $folder = 'Rohit' + $j
+    $k=0
+    
+         do{
+            $folder1 = 'Rohit' + $k
+                $l=0 
+                
+                    do{
+                        $cpfile = 'Rohit' + $l + '.txt'
+                        Copy-Item $cpfile -Recurse -Destination $folder\$folder1 
+                        $l++
+                    }while( $l -lt 10  )
+            $k++
+    
+        }while ($k -lt 10)
+    $j++
+}while($j -lt 10)
+        
+  $j++      
+}while($j -lt 10)
+
+5.Remove   text File  using do while 
+
+$j=0 
+
+do{
+    $folder = 'Rohit' + $j
+    $k=0
+    
+    do{
+        $folder1 = 'Rohit' + $k
+        Remove-Item -Path $folder\$folder1\* -Recurse 
+        $k++
+    }while($k -lt 10)
+    $j++
+    
+}While($j -lt 10)
+
